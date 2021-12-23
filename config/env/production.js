@@ -66,7 +66,7 @@ module.exports = {
        * https://sailsjs.com/config/datastores                                     *
        *                                                                           *
        ****************************************************************************/
-      // ssl: { rejectUnauthorized: true },
+      ssl: { rejectUnauthorized: true },
     },
   },
 
@@ -167,9 +167,6 @@ module.exports = {
      ***************************************************************************/
     // adapter: '@sailshq/connect-redis',
     // url: 'redis://user:password@localhost:6379/databasenumber',
-    ssl: {
-      rejectUnauthorized: false,
-    },
     //--------------------------------------------------------------------------
     // /\   OR, to avoid checking it in to version control, you might opt to
     // ||   set sensitive credentials like this using an environment variable.
