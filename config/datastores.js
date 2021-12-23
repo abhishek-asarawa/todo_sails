@@ -46,6 +46,6 @@ module.exports.datastores = {
      *                                                                          *
      ***************************************************************************/
     adapter: "sails-postgresql",
-    url: "postgresql://api_server:PassWord2021!@localhost:5432/task_version_1",
+    url: process.env.DATABASE_URL,
   },
 };
