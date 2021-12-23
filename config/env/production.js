@@ -239,7 +239,7 @@ module.exports = {
      *                                                                          *
      ***************************************************************************/
     // adapter: '@sailshq/socket.io-redis',
-    url: `${process.env.DATABASE_URL}?ssl=true`,
+    url: `${process.env.DATABASE_URL}?sslmode=required`,
     //--------------------------------------------------------------------------
     // /\   OR, to avoid checking it in to version control, you might opt to
     // ||   set sensitive credentials like this using an environment variable.
