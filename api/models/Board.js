@@ -14,6 +14,8 @@ module.exports = {
 
     description: { type: "string", required: true },
 
+    tasks: { collection: "task", via: "board" },
+
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝

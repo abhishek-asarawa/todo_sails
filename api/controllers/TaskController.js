@@ -11,12 +11,16 @@ module.exports = {
     return res.sendData(tasks, "All Tasks");
   },
   create: async function (req, res) {
-    const { title, description } = req.body;
+    const { title, description, board } = req.body;
 
-    if (!title || !description)
-      return res.badRequest("title and description both required");
+    if (!title || !description || !board)
+      return res.badRequest("title, description and board id all required");
 
-    const task = await Task.create({ title, description });
+    const boardData = await Board.findOne({ id: board });
+
+    if (!boardData) return res.badRequest(`No board with id ${board} found.`);
+
+    const task = await Task.create({ title, description, board });
     return res.sendData(task, "task created");
   },
   update: async function (req, res) {
@@ -33,7 +37,7 @@ module.exports = {
   delete: async function (req, res) {
     const id = req.params.id;
 
-    const task = await Task.destroy({ id });
+    await Task.destroy({ id });
 
     return res.sendMsg("Task removed");
   },

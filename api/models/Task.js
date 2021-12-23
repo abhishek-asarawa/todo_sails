@@ -17,6 +17,8 @@ module.exports = {
 
     isComplete: { type: "boolean", defaultsTo: false },
 
+    board: { model: "board", required: true },
+
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝

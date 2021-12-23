@@ -18,6 +18,7 @@ module.exports.routes = {
    *                                                                          *
    ***************************************************************************/
   "GET /boards": { controller: "BoardController", action: "getBoards" },
+  "GET /board/:id": { controller: "BoardController", action: "getBoard" },
   "POST /board": { controller: "BoardController", action: "create" },
   "PUT /board/:id": { controller: "BoardController", action: "update" },
   "DELETE /board/:id": { controller: "BoardController", action: "delete" },

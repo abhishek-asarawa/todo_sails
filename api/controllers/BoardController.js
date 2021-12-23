@@ -10,6 +10,13 @@ module.exports = {
     const boards = await Board.find({});
     return res.sendData(boards, "All Boards");
   },
+  getBoard: async function (req, res) {
+    const id = req.params.id;
+    const board = await Board.findOne({ id }).populate("tasks");
+
+    if (!board) return res.notFound(`Board with id ${id} not found`);
+    return res.sendData(board, "Board found");
+  },
   create: async function (req, res) {
     const { title, description } = req.body;
 
