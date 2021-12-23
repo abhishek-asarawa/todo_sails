@@ -239,7 +239,7 @@ module.exports = {
      *                                                                          *
      ***************************************************************************/
     // adapter: '@sailshq/socket.io-redis',
-    // url: 'redis://user:password@bigsquid.redistogo.com:9562/databasenumber',
+    url: `${process.env.DATABASE_URL}?ssl=true`,
     //--------------------------------------------------------------------------
     // /\   OR, to avoid checking it in to version control, you might opt to
     // ||   set sensitive credentials like this using an environment variable.
@@ -320,7 +320,7 @@ module.exports = {
    * > https://sailsjs.com/config/*#?sailsconfigssl                          *
    *                                                                         *
    **************************************************************************/
-  ssl: true,
+  // ssl: undefined,
 
   /**************************************************************************
    *                                                                         *
