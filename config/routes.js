@@ -17,6 +17,11 @@ module.exports.routes = {
    * `assets` directory)                                                      *
    *                                                                          *
    ***************************************************************************/
+  "GET /boards": { controller: "BoardController", action: "getBoards" },
+  "POST /board": { controller: "BoardController", action: "create" },
+  "PUT /board/:id": { controller: "BoardController", action: "update" },
+  "DELETE /board/:id": { controller: "BoardController", action: "delete" },
+
   "GET /tasks": { controller: "TaskController", action: "getTasks" },
   "POST /task": { controller: "TaskController", action: "create" },
   "PUT /task/:id": { controller: "TaskController", action: "update" },
