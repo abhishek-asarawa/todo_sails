@@ -33,7 +33,7 @@ module.exports = {
         { total: 0, completed: 0, pending: 0 }
       );
 
-      return { ...rest, tasks: { total, completed, pending } };
+      return { ...rest, tasksAgg: { total, completed, pending } };
     });
 
     return res.sendData(result, "All Boards");
@@ -53,8 +53,8 @@ module.exports = {
     if (!title || !description)
       return res.badRequest("title and description both required");
 
-    await Board.create({ title, description });
-    return res.sendMsg("Board created");
+    const board = await Board.create({ title, description }).fetch();
+    return res.sendData(board, "Board created");
   },
   update: async function (req, res) {
     const { title, description } = req.body;
@@ -63,9 +63,9 @@ module.exports = {
     if (!id || (!title && !description))
       return res.badRequest("Not enough details to process request");
 
-    await Board.update({ id }, { title, description });
+    const board = await Board.update({ id }, { title, description }).fetch();
 
-    return res.sendMsg("Board updated");
+    return res.sendData(board, "Board updated");
   },
   delete: async function (req, res) {
     const id = req.params.id;

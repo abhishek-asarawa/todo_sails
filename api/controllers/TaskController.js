@@ -20,17 +20,20 @@ module.exports = {
 
     if (!boardData) return res.badRequest(`No board with id ${board} found.`);
 
-    const task = await Task.create({ title, description, board });
+    const task = await Task.create({ title, description, board }).fetch();
     return res.sendData(task, "task created");
   },
   update: async function (req, res) {
     const { title, description, isComplete } = req.body;
     const id = req.params.id;
 
-    if (!id || (!title && !description && !isComplete))
+    if (!id || (!title && !description && typeof isComplete != "boolean"))
       return res.badRequest("Not enough details to process request");
 
-    const task = await Task.update({ id }, { title, description, isComplete });
+    const task = await Task.update(
+      { id },
+      { title, description, isComplete }
+    ).fetch();
 
     return res.sendData(task, "Task updated");
   },
